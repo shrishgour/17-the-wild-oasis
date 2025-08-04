@@ -126,7 +126,7 @@ function Button({ children, icon, onClick }) {
     <li>
       <StyledButton onClick={handleClick}>
         {icon}
-        <spn>{children}</spn>
+        <span>{children}</span>
       </StyledButton>
     </li>
   );

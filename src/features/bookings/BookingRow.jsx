@@ -1,11 +1,12 @@
-import styled from "styled-components";
 import { format, isToday } from "date-fns";
+import styled from "styled-components";
 
-import Tag from "../../ui/Tag";
 import Table from "../../ui/Table";
+import Tag from "../../ui/Tag";
 
-import { formatCurrency } from "../../utils/helpers";
-import { formatDistanceFromNow } from "../../utils/helpers";
+import { HiEye } from "react-icons/hi2";
+import Menus from "../../ui/Menus";
+import { formatCurrency, formatDistanceFromNow } from "../../utils/helpers";
 
 const Cabin = styled.div`
   font-size: 1.6rem;
@@ -79,6 +80,13 @@ function BookingRow({
       <Tag type={statusToTagName[status]}>{status.replace("-", " ")}</Tag>
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
+
+      <Menus.Menu>
+        <Menus.Toggle id={bookingId} />
+        <Menus.List id={bookingId}>
+          <Menus.Button icon={<HiEye />}>See details</Menus.Button>
+        </Menus.List>
+      </Menus.Menu>
     </Table.Row>
   );
 }
